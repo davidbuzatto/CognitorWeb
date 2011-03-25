@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : applicationContext.xml
+    Created on : May 21, 2009, 9:43 AM
+    Author     : David Buzatto
+    Description: Configurações do Spring
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    
+    <!-- Obtém o arquivo properties -->
+    <bean id="propertyConfigurer"
+            class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:/hibernate.properties" />
+    </bean>
+    
+    <!-- Data Source -->
+    <!--bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${hibernate.connection.driver_class}"/>
+        <property name="url" value="${hibernate.connection.url}"/>
+        <property name="username" value="${hibernate.connection.username}"/>
+        <property name="password" value="${hibernate.connection.password}"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxActive" value="30"/>
+    </bean-->
+    
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${hibernate.connection.driver_class}"/>
+        <property name="jdbcUrl" value="${hibernate.connection.url}"/>
+        <property name="user" value="${hibernate.connection.username}"/>
+        <property name="password" value="${hibernate.connection.password}"/>
+        <property name="initialPoolSize" value="5"/>
+        <property name="minPoolSize" value="5"/>
+        <property name="maxPoolSize" value="30"/>
+    </bean>
+
+    <!-- Session Factory -->
+    <bean id="sessionFactory"
+            class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        
+        <property name="dataSource" ref="dataSource" />
+        
+        <!-- Classes -->
+        <property name="annotatedClasses">
+            <list>
+                <!-- Entidades principais -->
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Asset</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Cidade</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Conceito</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.ConceitoComConceito</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.ConceitoComConceitoPK</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.ConceitoComPagina</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.ConceitoComPaginaPK</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Configuracao</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Estado</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Grupo</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.GrupoComGrupo</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.GrupoComGrupoPK</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.GrupoComPagina</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.GrupoComPaginaPK</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.I18NTable</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Imagem</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Log</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Material</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.MaterialComConceito</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.MaterialComConceitoPK</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.MaterialComGrupo</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.MaterialComGrupoPK</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.MaterialComMaterial</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.MaterialComMaterialPK</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.ObjetoAprendizagem</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Pagina</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Pais</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.RelacaoMapaConceito</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Som</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Usuario</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.Video</value>
+
+                <!-- Metadados -->
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.Metadata</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.Lom</value>
+                
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.comum.LangString</value>
+
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.general.General</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.general.GeneralIdentifier</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.general.GeneralTitle</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.general.GeneralLanguage</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.general.GeneralDescription</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.general.GeneralKeyword</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.general.GeneralCoverage</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.general.GeneralStructure</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.general.GeneralAggregationLevel</value>
+
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.lifecycle.LifeCycle</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.lifecycle.LifeCycleVersion</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.lifecycle.LifeCycleStatus</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.lifecycle.LifeCycleContribute</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.lifecycle.LifeCycleContributeRole</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.lifecycle.LifeCycleContributeEntity</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.lifecycle.LifeCycleContributeDate</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.lifecycle.LifeCycleContributeDateDescription</value>
+
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.metametadata.MetaMetadata</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.metametadata.MetaMetadataIdentifier</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.metametadata.MetaMetadataContribute</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.metametadata.MetaMetadataContributeRole</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.metametadata.MetaMetadataContributeEntity</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.metametadata.MetaMetadataContributeDate</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.metametadata.MetaMetadataContributeDateDescription</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.metametadata.MetaMetadataMetadataSchema</value>
+
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.technical.Technical</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.technical.TechnicalFormat</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.technical.TechnicalLocation</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.technical.TechnicalRequirement</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.technical.TechnicalRequirementOrComposite</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.technical.TechnicalRequirementOrCompositeType</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.technical.TechnicalRequirementOrCompositeName</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.technical.TechnicalInstallationRemarks</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.technical.TechnicalOtherPlatformRequirements</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.technical.TechnicalDuration</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.technical.TechnicalDurationDescription</value>
+
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.Educational</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalInteractivityType</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalLearningResourceType</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalInteractivityLevel</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalSemanticDensity</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalIntendedEndUserRole</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalContext</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalTypicalAgeRange</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalDifficulty</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalTypicalLearningTime</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalTypicalLearningTimeDescription</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalDescription</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.educational.EducationalLanguage</value>
+
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.rights.Rights</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.rights.RightsCost</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.rights.RightsCopyrightAndOtherRestrictions</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.rights.RightsDescription</value>
+
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.relation.Relation</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.relation.RelationKind</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.relation.RelationResource</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.relation.RelationResourceIdentifier</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.relation.RelationResourceDescription</value>
+
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.annotation.Annotation</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.annotation.AnnotationEntity</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.annotation.AnnotationDate</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.annotation.AnnotationDateDescription</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.annotation.AnnotationDescription</value>
+
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.classification.Classification</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.classification.ClassificationPurpose</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.classification.ClassificationTaxonPath</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.classification.ClassificationTaxonPathSource</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.classification.ClassificationTaxonPathTaxon</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.classification.ClassificationTaxonPathTaxonEntry</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.classification.ClassificationDescription</value>
+                <value>br.ufscar.dc.lia.cognitorweb.entidades.metadados.lom.classification.ClassificationKeyword</value>
+                
+            </list>
+        </property>
+        
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!-- Gerenciador de Transações para o Hibernate -->
+    <bean id="transactionManager"
+            class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- Configurando o Dao genérico -->
+    <bean id="dao" class="br.ufscar.dc.lia.cognitorweb.dao.Dao">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!-- Configuração da classe utilitária para acesso dos beans -->
+    <bean id="util" class="br.ufscar.dc.lia.cognitorweb.util.SpringUtil" />
+    
+</beans>

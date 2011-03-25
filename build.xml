@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<!-- By default, only the Clean and Build commands use this build script. -->
+<!-- Commands such as Run, Debug, and Test only use this build script if -->
+<!-- the Compile on Save feature is turned off for the project. -->
+<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
+<!-- in the project's Project Properties dialog box.-->
+<project name="CognitorWeb" default="default" basedir=".">
+    <description>Builds, tests, and runs the project CognitorWeb.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <!--
+
+    There exist several targets which are by default empty and which can be 
+    used for execution of your tasks. These targets are usually executed 
+    before and after some main targets. They are: 
+
+      -pre-init:                 called before initialization of project properties 
+      -post-init:                called after initialization of project properties 
+      -pre-compile:              called before javac compilation 
+      -post-compile:             called after javac compilation 
+      -pre-compile-single:       called before javac compilation of single file
+      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-test:         called before javac compilation of JUnit tests
+      -post-compile-test:        called after javac compilation of JUnit tests
+      -pre-compile-test-single:  called before javac compilation of single JUnit test
+      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-dist:                 called before archive building 
+      -post-dist:                called after archive building 
+      -post-clean:               called after cleaning build products 
+      -pre-run-deploy:           called before deploying
+      -post-run-deploy:          called after deploying
+
+    Example of pluging an obfuscator after the compilation could look like 
+
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
+
+    For list of available properties check the imported 
+    nbproject/build-impl.xml file. 
+
+
+    Other way how to customize the build is by overriding existing main targets.
+    The target of interest are: 
+
+      init-macrodef-javac:    defines macro for javac compilation
+      init-macrodef-junit:   defines macro for junit execution
+      init-macrodef-debug:    defines macro for class debugging
+      do-dist:                archive building
+      run:                    execution of project 
+      javadoc-build:          javadoc generation 
+
+    Example of overriding the target for project execution could look like 
+
+        <target name="run" depends="<PROJNAME>-impl.jar">
+            <exec dir="bin" executable="launcher.exe">
+                <arg file="${dist.jar}"/>
+            </exec>
+        </target>
+
+    Notice that overridden target depends on jar target and not only on 
+    compile target as regular run target does. Again, for list of available 
+    properties which you can use check the target you are overriding in 
+    nbproject/build-impl.xml file. 
+
+    -->
+    <target name="-pre-dist">
+
+        <!--
+            Otimiza os arquivos Javascript da aplicação.
+            Faz a otimização apenas dos arquivos principais, não das bibliotecas.
+            Obs:
+                - É necessário colocar os arquivos na ordem correta, caso algum use
+                algo do outro.
+                - O código em sí totalmente otimizado, apenas é limpado e ofuscado.
+                - Usar apenas para versão em produçao.
+                - Na nova versão do closure compiler o arquivo de externs não é
+                mais necessário (para o cenário da aplicação).
+        -->
+
+        <property name="closureCompiler" value="${build.classes.dir}/../lib/compiler.jar"/>
+        <property name="jsRootFolder" value="${build.web.dir}/javascript"/>
+        <property name="extPluginsFolder" value="${jsRootFolder}/ext-plugins"/>
+        <property name="compiledJsFolder" value="${build.web.dir}/javascript"/>
+        <property name="compiledJsFileApp" value="${compiledJsFolder}/application.min.js"/>
+        <property name="compiledJsFileExtPlugins" value="${compiledJsFolder}/ext-plugins.min.js"/>
+        <property name="compiledJsIndex" value="${compiledJsFolder}/index.min.js"/>
+        <property name="compiledJsConsultas" value="${compiledJsFolder}/consultas.min.js"/>
+
+        <echo>Iniciando otimização do código JavaScript...</echo>
+        
+        <java jar="${closureCompiler}"
+                args="--compilation_level SIMPLE_OPTIMIZATIONS
+                --js ${jsRootFolder}/global.js
+                --js ${jsRootFolder}/uteis.js
+                --js ${jsRootFolder}/vtypes.js
+                --js ${jsRootFolder}/metadados.js
+                --js ${jsRootFolder}/estruturacaoConhecimento.js
+                --js ${jsRootFolder}/desenhos.js
+                --js ${jsRootFolder}/analogias.js
+                --js ${jsRootFolder}/usuarios.js
+                --js ${jsRootFolder}/dadosPessoais.js
+                --js ${jsRootFolder}/configuracoes.js
+                --js ${jsRootFolder}/telaInicial.js
+                --js ${jsRootFolder}/application.js
+                --js_output_file ${compiledJsFileApp}"/>
+
+        <java jar="${closureCompiler}"
+                args="--compilation_level SIMPLE_OPTIMIZATIONS
+                --js ${extPluginsFolder}/statusBar/Ext.ux.StatusBar.js
+                --js ${extPluginsFolder}/i18n/PropertyReader.js
+                --js ${extPluginsFolder}/i18n/Bundle.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.MidasCommand.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.Divider.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.HR.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.Imagem.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.Video.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.Som.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.IndentOutdent.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.RemoveFormat.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.SpecialCharacters.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.SubSuperScript.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.Table.js
+                --js ${extPluginsFolder}/htmlEditorCog/Ext.ux.form.HtmlEditorCog.Word.js
+                --js ${extPluginsFolder}/SWFUpload/swfupload.js
+                --js ${extPluginsFolder}/swfbtn/Ext.ux.swfbtn.js
+                --js_output_file ${compiledJsFileExtPlugins}"/>
+
+        <java jar="${closureCompiler}"
+                args="--compilation_level SIMPLE_OPTIMIZATIONS
+                --js ${compiledJsFolder}/index.js
+                --js_output_file ${compiledJsIndex}"/>
+
+        <java jar="${closureCompiler}"
+                args="--compilation_level SIMPLE_OPTIMIZATIONS
+                --js ${compiledJsFolder}/consultas.js
+                --js_output_file ${compiledJsConsultas}"/>
+
+        <echo>Otimização do código JavaScript finalizada!</echo>
+
+
+        <!-- Compilação das definições dos relatórios -->
+        <echo>Iniciando compilação das definições de relatórios...</echo>
+
+        <!-- Define o classpath usado para a compilação dos relatórios -->
+        <path id="jrc.classpath">
+            <fileset dir="${build.classes.dir}/../lib"
+                     includes="*.jar"/>
+        </path>
+
+        <!-- Define a tarefa customizada do Ant que compila
+             as definições dos relatórios-->
+        <taskdef name="jrc"
+                 classname="net.sf.jasperreports.ant.JRAntCompileTask">
+            <classpath refid="jrc.classpath"/>
+        </taskdef>
+
+        <!-- Primeiro cria o diretório de saída -->
+        <mkdir dir="${build.web.dir}/WEB-INF/classes/relatorios"/>
+
+        <!-- Compila as definições .jrxml ==> .jasper -->
+        <jrc srcdir="relatorios"
+             destdir="${build.web.dir}/WEB-INF/classes/relatorios">
+            <classpath
+                refid="jrc.classpath"/>
+            <include
+                name="*.jrxml"/>
+        </jrc>
+
+        <!-- Omite da aplicação os fontes das definições de relatórios -->
+        <delete>
+            <fileset dir="${build.web.dir}/WEB-INF/classes"
+                     includes="*.jrxml"/>
+        </delete>
+
+        <echo>Compilação das definições de relatórios finalizada!</echo>
+
+    </target>
+
+</project>

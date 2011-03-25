@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    background-color: #ffffff;
+}
+
+.divArvore {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px;
+    width: 180px;
+    overflow: hidden;
+}
+
+.divArvore a {
+    color: #26486A;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.divArvore a:hover {
+    color: #000000;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.linkRelacao {
+    color: #26486A;
+    text-decoration: none;
+}
+
+.linkRelacao:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.tb {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    padding: 0px;
+}
+
+.tbMenu {
+    width: 180px;
+    vertical-align: text-top;
+    border-right: solid 1px #C4C4C4;
+    border-bottom: solid 1px #C4C4C4;
+}
+
+.tbConteudo {
+    padding: 10px;
+    width: 100%;
+    vertical-align: text-top;
+    border-bottom: solid 1px #C4C4C4;
+}
+
+.tbControle {
+    font-family: Arial,Helvetica,sans-serif;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    border-bottom: solid 1px #C4C4C4;
+}
+
+.divBotoesArvore {
+    padding: 10px;
+    width: 170px;
+    text-align: center;
+    height: 50px;
+}

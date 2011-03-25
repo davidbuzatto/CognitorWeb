@@ -1,0 +1,146 @@
+/* 
+    Document   : estilosConsultas
+    Created on : Jan 07, 2010, 10:42:33 AM
+    Author     : David Buzatto
+    Description:
+        Estilos base para a página de consultas da ferramenta.
+*/
+
+body {
+    margin: 0px;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #82A5D1;
+    background-image: url(../imagens/fundoIndex.png);
+    background-repeat: repeat-x;
+}
+
+a {
+    color: #26486A;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+input {
+    font-size: 16px;
+}
+
+.camadaLogotipos {
+    padding-top: 80px;
+}
+
+.overlay {
+    position: absolute;
+    background: url(../imagens/fundoOverlayIndex.png);
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}
+
+.divPesquisa {
+    padding: 5px;
+}
+
+.divBtnPesquisa {
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.tdLabelPesquisa {
+    padding-right: 5px;
+    text-align: right;
+}
+
+.tbCamposPesquisa td {
+    padding-bottom: 5px;
+}
+
+.camadaAjuda {
+    position: absolute;
+    background: #D3E1EF;
+    border: solid 1px #658FBE;
+    width: auto;
+    height: auto;
+    display: none;
+    z-index: 12;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.cabMsgAjuda {
+    color: #4777A7;
+}
+
+.msgAjuda {
+    padding: 5px;
+}
+
+.tbResultados {
+    color: #26486A;
+    text-align: left;
+    width: 690px;
+    padding-top: 20px;
+}
+
+.linhaPar {
+    background-color: #D4E0EF;
+}
+
+.linhaImpar {
+    background-color: #E9EFF7;
+}
+
+.tbItemMaterial {
+    padding: 10px;
+    border-bottom: solid 1px #000000;
+}
+
+.tbItemMaterial td {
+    padding-bottom: 5px;
+    width: 680px;
+}
+
+.labelItemMaterial {
+    font-size: 16px;
+    color: #000000;
+}
+
+.labelPeqItemMaterial {
+    color: #000000;
+}
+
+.labelCabTbResultados {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #000000;
+}
+
+.divCarregando {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    padding: 2px;
+    z-index: 20;
+    height: auto;
+    text-align: center;
+}
+
+.divCarregando .divIndicadorCarregando {
+    color: #444444;
+    font: bold 13px tahoma,arial,helvetica;
+    padding: 10px;
+    margin: 0;
+    height: auto;
+}

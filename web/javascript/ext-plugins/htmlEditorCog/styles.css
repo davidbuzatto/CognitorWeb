@@ -1,0 +1,45 @@
+/*
+	These are examples of styles for the button icons (you must supply the icon files yourself)
+
+	For nice icon sets, check out the following sites.
+	- http://www.famfamfam.com/
+	- http://code.google.com/p/fugue-icons/
+    - http://www.everaldo.com/crystal/
+*/
+.x-edit-wordpaste {background: url(../../../imagens/icones/document-word-text.png) 0 0 no-repeat !important;}
+.x-edit-table {background: url(../../../imagens/icones/table.png) 0 0 no-repeat !important;}
+.x-edit-hr {background: url(../../../imagens/icones/text_horizontalrule.png) 0 0 no-repeat !important;}
+.x-edit-indent {background: url(../../../imagens/icones/text_indent.png) 0 0 no-repeat !important;}
+.x-edit-pictures {background: url(../../../imagens/icones/picture.png) 0 0 no-repeat !important;}
+.x-edit-videos {background: url(../../../imagens/icones/film.png) 0 0 no-repeat !important;}
+.x-edit-sounds {background: url(../../../imagens/icones/music.png) 0 0 no-repeat !important;}
+.x-edit-char {background: url(../../../imagens/icones/text_letter_omega.png) 0 0 no-repeat !important;}
+.x-edit-outdent {background: url(../../../imagens/icones/text_indent_remove.png) 0 0 no-repeat !important;}
+.x-edit-subscript {background: url(../../../imagens/icones/text_subscript.png) 0 0 no-repeat !important;}
+.x-edit-superscript {background: url(../../../imagens/icones/text_superscript.png) 0 0 no-repeat !important;}
+.x-edit-removeFormat {background: url(../../../imagens/icones/exclamation.png) 0 0 no-repeat !important;}
+
+/*
+	These styles are used for the character map
+*/
+.char-item {
+	float: left; 
+	border: 1px solid #99BBE8; 
+	margin: 3px; 
+	text-align: center; 
+	vertical-align: middle; 
+	width: 20px; 
+	height: 20px; 
+	font-size: 14px;
+	color: #15428B;
+	cursor: pointer;
+}
+
+.char-item.x-view-selected {
+	background-color: #777;
+}
+
+.char-over {
+	border: 1px solid #15428B;
+	background-color:#d0def0;
+}

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.web.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/web-project/3">
+            <name>CognitorWeb</name>
+            <minimum-ant-version>1.6.5</minimum-ant-version>
+            <web-module-libraries>
+                <library dirs="200">
+                    <file>${libs.C3P0-0.9.1.2.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.CGLib-2.2.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.ClosureCompiler.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.CommonsColletions-3.2.1.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.CommonsDBCP-1.2.2.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.CommonsEmail-1.1.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.CommonsFileUpload-1.2.1.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.CommonsIO-1.4.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.CommonsLang-2.4.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.CommonsLogging-1.1.1.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.CommonsPool-1.4.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.EJB3-Persistence.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.HibernateCore-3.3.1.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.HibernateAnnotations-3.4.0.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.HibernateValidator-3.1.0.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.JavaMail-1.4.2.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.JasperReports-3.7.0.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.JodaTime-1.6.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.jstl11.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.Log4J-1.2.15.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.MySQLConnector-5.1.7.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.SimpleXML-2.1.8.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.Spring-2.5.6.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.SLF4J-1.5.6.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.XML-RPC-2.0.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+            </web-module-libraries>
+            <web-module-additional-libraries/>
+            <source-roots>
+                <root id="src.hibernate.dir" name="Configurações Hibernate"/>
+                <root id="src.log4j.dir" name="Configurações Log4J"/>
+                <root id="src.spring.dir" name="Configurações Spring"/>
+                <root id="src.cargaBanco.dir" name="Carga do Banco de Dados"/>
+                <root id="src.instalacao.dir" name="Instruções de Instalação"/>
+                <root id="src.relatorios.dir" name="Definições dos Relatórios"/>
+                <root id="src.dir"/>
+            </source-roots>
+            <test-roots>
+                <root id="test.src.dir"/>
+            </test-roots>
+        </data>
+        <libraries xmlns="http://www.netbeans.org/ns/ant-project-libraries/1">
+            <definitions>.\lib\nblibraries.properties</definitions>
+        </libraries>
+        <spring-data xmlns="http://www.netbeans.org/ns/spring-data/1">
+            <config-files/>
+            <config-file-groups/>
+        </spring-data>
+    </configuration>
+</project>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Estatísiticas" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<parameter name="quantidadeMateriais" class="java.lang.Integer"/>
+	<parameter name="quantidadeUsuarios" class="java.lang.Integer"/>
+	<parameter name="nomeUsuario" class="java.lang.String"/>
+	<parameter name="media" class="java.lang.Double"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="38" width="552" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estatísticas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="108" splitType="Stretch">
+			<staticText>
+				<reportElement x="446" y="9" width="36" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="9" width="54" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Usuário:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="58" y="9" width="366" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{nomeUsuario}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="156" y="42" width="144" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{quantidadeMateriais}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="156" y="63" width="144" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{quantidadeUsuarios}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="485" y="9" width="70" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="42" width="151" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Quantidade de Materiais:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="63" width="151" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Quantidade de Usuários:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="84" width="151" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Materiais por Usuários:]]></text>
+			</staticText>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="156" y="84" width="100" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$P{media}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="4" width="554" height="2"/>
+			</line>
+			<line>
+				<reportElement x="0" y="32" width="554" height="2"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="33" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

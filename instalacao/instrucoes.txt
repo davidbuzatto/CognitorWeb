@@ -1,0 +1,88 @@
+Instruções de Instalação do Cognitor Web
+
+Autor: David Buzatto
+Data: 08 de janeiro de 2010
+
+A instalação do Cognitor Web no servidor se dá em vários passos.
+A seguir cada passo será descrito.
+
+
+1 - Configuração do Encoding do Servidor
+
+O Cognitor Web utiliza o base de conhecimento de senso comum que é exposta
+através de serviços XML-RPC. A API da ConceptNet aceita strings no formato
+ISO-8859-1 (que já está configurado dentro da aplicação) e retorna resultados
+nesse encoding também. A JVM faz a transformação automaticamente quando a string
+entra no seu processamento, entretanto a saída se desejado deve ser configurada.
+Para que as consultas na base de conhecimento funcionem da forma desejada,
+retornando strings codificadas corretamente deve-se adicionar algumas
+configurações no servidor que se está utilizando.
+
+Atualmente tanto o tomcat da máquina Xingu quando o glassfish da máquina Arara
+estão configurados corretamente. Caso haja necessidade de serem reconfigurados
+os passos são:
+
+Tomcat - No início do arquivo catalina.sh da pasta bin da instalação do tomcat é
+necessário criar a variável de sistema CATALINA_OPTS com o seguinte valor.
+
+CATALINA_OPTS="-Dfile.encoding=UTF-8 -Duser.language=pt -Duser.region=BR -Dsun.jnu.encoding=UTF-8 -Dcom.sun.management.jmxremote";
+export CATALINA_OPTS;
+
+Glassfish - Pode-se fazer a configuração utilizando o asadmin ou então pela
+interface de administração. Pela interface basta inserir em Application Server
+-> JVM Settings -> JVM Options as seguintes opções:
+-Dfile.encoding=UTF-8
+-Duser.language=pt
+-Duser.region=BR
+-Dsun.jnu.encoding=UTF-8
+Pelo asadmin o processo se dá utilizando a opção create-jvm-option
+
+
+2 - Criação e Carga do Banco de Dados
+
+Se a instalação for ser feita pela primeira vez, é preciso criar e fazer a
+carga da base de dados. Os passos a seguir descrevem o processo:
+
+- Crie uma base de dados no servidor de banco de dados e um usuário para ela
+- No arquivo hibernate.properties situado em Configurações Hibernate, configure
+  os valores necessários (usuário, senha, base, etc).
+- Dê Shift+F11 no projeto para ele ser limpado e compilado
+- Abra a classe GerarTabelas do pacote util do projeto
+- Execute a classe (Shift+F6)
+- Aguarde a base ser gerada
+- Acesse a base criada pelo método que quiser e carregue nela os dados dos arquivos .sql
+  contidos na pasta Carga do Banco de Dados do projeto. Primeiro carregue as tabelas de
+  países, estados e cidades, depois o arquivo de configurações de usuários e por fim o
+  arquivo de stored procedures (lembre-se que o banco utilizado é o mysql).
+- O usuário cognitor@dc.ufscar.br é o usuário administrador padrão e a senha criada é
+  cogadmin.
+
+
+3 - Configuração do repositório de arquivos
+
+O Cognitor Web utiliza uma pasta no sistema de arquivos da máquina em que ele estiver
+rodando para armazenar arquivos (imagens, etc) dos materiais didáticos.
+
+O caminho para essa pasta é configurado pela propriedade repositorioArquivos
+(que foi carregada no banco e pode ser alterada por qualquer usuário administrador
+da ferramenta).
+
+Deve-se criar essa pasta no sistema de arquivos e o usuário que estiver rodando
+o servidor deve ter privilégios de leitura e escrita nessa pasta.
+
+Outro detalhe a ser levado em consideração é que para cada usuário descrito no
+arquivo de carga de usuários e configurações deve exisitir uma pasta com o seu
+nome de usuário, que no caso é o sistema.
+
+Por exemplo, se um usuário com o e-mail joao@dc.ufscar.br estiver na carga de
+configurações, deve ser criada uma pasta com o nome joao@dc.ufscar.br dentro da
+pasta estipulada no caminho da propriedade repositorioArquivos.
+
+Para usuários cadastrados dentro do sistema, as pastas são criadas automaticamente.
+
+Qualquer dúvida em relação a essas instruções podem se solucionadas pelo e-mail
+davidbuzatto@gmail.com.
+
+Boa sorte com a administração do Cognitor Web.
+
+08 de janeiro de 2010.

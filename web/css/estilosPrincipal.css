@@ -1,0 +1,424 @@
+/* 
+    Document   : estilosPrincipal
+    Created on : Aug 20, 2009, 4:02:33 PM
+    Author     : David Buzatto
+    Description:
+        Estilos base para a interface principal da ferramenta.
+*/
+
+.fundoBarraBotoesEstrutura {
+    background-image: url(../imagens/fundoBarraBotoesEstrutura.png);
+    background-repeat: repeat-y;
+}
+
+.fundoSeparadorBotoesEstrutura {
+    background-image: url(../imagens/fundoSeparadorBotoesEstrutura.png);
+    background-repeat: repeat-y;
+}
+
+.corFundoJanela {
+    background: #CAD8EA;
+}
+
+.layoutComLink {
+    background-image: url(../imagens/layoutComLink.png);
+    background-repeat: no-repeat;
+}
+
+.layoutComBarra {
+    background-image: url(../imagens/layoutComBarra.png);
+    background-repeat: no-repeat;
+}
+
+.cabecalhoTelaInicial {
+    background-image: url(../imagens/cabecalhoTelaInicial.png);
+    background-repeat: no-repeat;
+}
+
+.iconeSobre {
+    background-image: url(../imagens/logoCognitorSobre.png);
+    background-repeat: no-repeat;
+}
+
+.iconeNovo {
+    background-image: url(../imagens/icones/page_white_add.png);
+    background-repeat: no-repeat;
+}
+
+.iconeAbrir {
+    background-image: url(../imagens/icones/folder.png);
+    background-repeat: no-repeat;
+}
+
+.iconeExcluirMateriais {
+    background-image: url(../imagens/icones/bin_closed.png);
+    background-repeat: no-repeat;
+}
+
+.iconeDadosPessoais {
+    background-image: url(../imagens/icones/user_edit.png);
+    background-repeat: no-repeat;
+}
+
+.iconeUsuarios {
+    background-image: url(../imagens/icones/group.png);
+    background-repeat: no-repeat;
+}
+
+.iconeConfiguracoes {
+    background-image: url(../imagens/icones/wrench.png);
+    background-repeat: no-repeat;
+}
+
+.iconeMetadados {
+    background-image: url(../imagens/icones/page_green.png);
+    background-repeat: no-repeat;
+}
+
+.iconeEdicao {
+    background-image: url(../imagens/icones/page_edit.png);
+    background-repeat: no-repeat;
+}
+
+.iconeSensoComum {
+    background-image: url(../imagens/icones/commonSense.png);
+    background-repeat: no-repeat;
+}
+
+.iconeMaterial {
+    background-image: url(../imagens/icones/book_open.png);
+    background-repeat: no-repeat;
+}
+
+.iconeConceito {
+    background-image: url(../imagens/icones/lightbulb.png);
+    background-repeat: no-repeat;
+}
+
+.iconeGrupo {
+    background-image: url(../imagens/icones/book.png);
+    background-repeat: no-repeat;
+}
+
+.iconePagina {
+    background-image: url(../imagens/icones/page.png);
+    background-repeat: no-repeat;
+}
+
+.iconePaginaNaoSalva {
+    background-image: url(../imagens/icones/page_red.png);
+    background-repeat: no-repeat;
+}
+
+.iconeNovoGrupo {
+    background-image: url(../imagens/icones/book_add.png);
+    background-repeat: no-repeat;
+}
+
+.iconeNovaPagina {
+    background-image: url(../imagens/icones/page_add.png);
+    background-repeat: no-repeat;
+}
+
+.iconeMapaConceitos {
+    background-image: url(../imagens/icones/chart_organisation.png);
+    background-repeat: no-repeat;
+}
+
+.iconeGraficoMapaConceitos {
+    background-image: url(../imagens/icones/lampadas.png);
+    background-repeat: no-repeat;
+}
+
+.iconeAssistente {
+    background-image: url(../imagens/icones/wand.png);
+    background-repeat: no-repeat;
+}
+
+.iconeJoin {
+    background-image: url(../imagens/icones/arrow_join.png);
+    background-repeat: no-repeat;
+}
+
+.iconeImagem {
+    background-image: url(../imagens/icones/page_white_picture.png);
+    background-repeat: no-repeat;
+}
+
+.iconeVideo {
+    background-image: url(../imagens/icones/page_white_film.png);
+    background-repeat: no-repeat;
+}
+
+.iconeSom {
+    background-image: url(../imagens/icones/page_white_music.png);
+    background-repeat: no-repeat;
+}
+
+.iconeInserirImagem {
+    background-image: url(../imagens/icones/picture.png);
+    background-repeat: no-repeat;
+}
+
+.iconeInserirVideo {
+    background-image: url(../imagens/icones/film.png);
+    background-repeat: no-repeat;
+}
+
+.iconeInserirSom {
+    background-image: url(../imagens/icones/music.png);
+    background-repeat: no-repeat;
+}
+
+.iconeInserirTabela {
+    background-image: url(../imagens/icones/table.png);
+    background-repeat: no-repeat;
+}
+
+.iconeInserirLinha {
+    background-image: url(../imagens/icones/text_horizontalrule.png);
+    background-repeat: no-repeat;
+}
+
+.iconeInserirCaractere {
+    background-image: url(../imagens/icones/text_letter_omega.png);
+    background-repeat: no-repeat;
+}
+
+.iconeEnviarArquivo {
+    background-image: url(../imagens/icones/arrow_up.png);
+    background-repeat: no-repeat;
+}
+
+.iconeAnalogias {
+    background-image: url(../imagens/icones/comment.png);
+    background-repeat: no-repeat;
+}
+
+.iconeDetalheAnalogias {
+    background-image: url(../imagens/icones/comment_edit.png);
+    background-repeat: no-repeat;
+}
+
+.espacamentoFormMetadados {
+    padding: 6px;
+    width: 60px;
+    text-align: right;
+}
+
+.espacamentoSensoComum {
+    padding: 6px;
+}
+
+.negrito {
+    font-weight: bold;
+}
+
+.justificado {
+    text-align: justify;
+}
+
+.conceitoBase {
+    color: #008844;
+    text-decoration: underline;
+}
+
+.conceitoAlvo {
+    color: #004488;
+    text-decoration: underline;
+}
+
+.conceitoAnalogo {
+    color: #009292;
+    text-decoration: underline;
+}
+
+.divMateriaisDisponiveis {
+    overflow: scroll;
+    width: 630px;
+    height: 182px;
+    border: thin solid #CAD8EA;
+}
+
+.divImagensDisponiveis {
+    overflow: scroll;
+    width: 630px;
+    height: 182px;
+    border: thin solid #CAD8EA;
+}
+
+.divVideosDisponiveis {
+    overflow: scroll;
+    width: 630px;
+    height: 182px;
+    border: thin solid #CAD8EA;
+}
+
+.divSonsDisponiveis {
+    overflow: scroll;
+    width: 630px;
+    height: 182px;
+    border: thin solid #CAD8EA;
+}
+
+.divDesenhoGraficoMapaConceito {
+    position: relative;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.divAreaDetalheAnalogiaCab {
+    padding: 8px;
+    white-space: pre-wrap;
+    font-weight: bold;
+}
+
+.divAreaDetalheAnalogiaCont {
+    padding: 8px;
+    padding-left: 30px;
+    white-space: pre-wrap;
+    font-weight: bold;
+}
+
+.tabelaMateriaisDisponiveis {
+    border-spacing: 2px;
+}
+
+.tabelaMateriaisDisponiveis td {
+    background: #EFEFEF;
+    border-bottom: solid 1px #D9D9D9;
+    border-right: solid 1px #D9D9D9;
+}
+
+.tabelaImagensDisponiveis {
+    border-spacing: 2px;
+}
+
+.tabelaImagensDisponiveis td {
+    background: #EFEFEF;
+    border-bottom: solid 1px #D9D9D9;
+    border-right: solid 1px #D9D9D9;
+}
+
+.tabelaVideosDisponiveis {
+    border-spacing: 2px;
+}
+
+.tabelaVideosDisponiveis td {
+    background: #EFEFEF;
+    border-bottom: solid 1px #D9D9D9;
+    border-right: solid 1px #D9D9D9;
+}
+
+.tabelaSonsDisponiveis {
+    border-spacing: 2px;
+}
+
+.tabelaSonsDisponiveis td {
+    background: #EFEFEF;
+    border-bottom: solid 1px #D9D9D9;
+    border-right: solid 1px #D9D9D9;
+}
+
+.materialDisponivel {
+    background: #FFFFFF;
+    padding: 4px;
+    width: 200px;
+    height: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.imagemDisponivel {
+    background: #FFFFFF;
+    padding: 4px;
+    width: 200px;
+    height: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.videoDisponivel {
+    background: #FFFFFF;
+    padding: 4px;
+    width: 200px;
+    height: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.somDisponivel {
+    background: #FFFFFF;
+    padding: 4px;
+    width: 200px;
+    height: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.linhaPar {
+    background: #EFEFEF;
+    border-bottom: solid 1px #D9D9D9;
+    border-right: solid 1px #D9D9D9;
+}
+
+.linhaImpar {
+    background: #FFFFFF;
+    border-bottom: solid 1px #D9D9D9;
+    border-right: solid 1px #D9D9D9;
+}
+
+/*
+ * Estilos para a janela de carregamento
+ */
+.mascaraCarregando {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20000;
+    background-color: #82A5D1;
+    background-image: url(../imagens/fundoIndex.png);
+    background-repeat: repeat-x;
+}
+
+.carregando {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    margin-left: -87px;
+    padding: 2px;
+    z-index: 20001;
+    height: auto;
+    text-align: center;
+}
+
+.carregando .indicadorCarregando {
+    color: #444444;
+    font: bold 13px tahoma,arial,helvetica;
+    padding: 10px;
+    margin: 0;
+    height: auto;
+}
+
+.mensagemCarregando {
+    font: normal 10px arial,tahoma,sans-serif;
+}
+
+/*
+ * redefinição de classes do extjs
+ */
+.ext-el-mask {
+    opacity: 0.2;
+    background-color: #FFFFFF;
+}
+
+/*
+ * Utilizado pelo plugin swfbtn.
+ */
+.swfupload {
+    position: absolute;
+    z-index: 100;
+}
